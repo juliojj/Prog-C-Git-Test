@@ -1,0 +1,18 @@
+name: C Compilation Check
+
+on: [push]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest  # El servidor farà servir Linux
+
+    steps:
+    - uses: actions/checkout@v4 # 1. Baixar el codi
+    
+    - name: Compilar Codi
+      # 2. El servidor compila (genera un .out)
+      run: gcc main.c -o app.out 
+      
+    - name: Executar el programa
+      # 3. Executar la prova
+      run: ./app.out
